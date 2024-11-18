@@ -1,15 +1,13 @@
 //
-// Created by taylo on 12/11/2024.
+// Created by taylo on 15/11/2024.
 //
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-int getbill(float Roomcost ,int adultboard,int childboard, char paper, int age , int children);
+int getbill(char data[7][12][20]);
 
 int main(void){
-    char bookingId[20];
-    char guestName[20];
     float bill;
     char data[7][12][20] = {
         {"james","cook","22/09/2007","16","0","2","FB","3","N","3","cook1234"},
@@ -19,43 +17,52 @@ int main(void){
         {"noah","williams","04/02/1995","29","1","2","FB","10","N","4","williams7890"},
         {"sophia","martin","19/07/1988","35","3","2","HB","6","Y","5","martin3456"}
     };
-    bill = getbill(3, 4,3,'y',5,2);
+    printf("%s",data[1][2]);
+    // need to know how to send whole array into subroutine
+    bill = getbill(data[7][12][20]);
     return 0;
 }
-int getbill(float Roomcost ,int adultboard,int childboard, char paper, int age , int children){
-    float total_bill;
-    float total_board;
-    char bookingId[20];
-    char guestName[20];
+int getbill(char data[7][12][20]) {
+    char paper = data[0][8];
+    float total_bill = 0;
+    float Roomcost =0;
+    int children = data[0][4];
+    int age = data[0][3];
+    float adultboard =0;
+    float childboard =0;
+    float total_board =0;
+    int rooms = data[0][9];
+    int days = data[0][5];
 
-    printf("Enter Booking ID:");
-    fflush(stdin);
-    scanf("%c",bookingId);
-    printf("Enter Booking Name:");
-    fflush(stdin);
-    scanf("%c",guestName);
 
-    if (paper == 'y'){
+    if (paper == 'Y'){
         total_bill = total_bill + 5.5;
     }
 
+    if(rooms == 1 || rooms == 2) {
+        Roomcost =  rooms * 100 * days;
+    }
+    else if(rooms == 3) {
+        Roomcost = rooms *85 * days;
+    }
+    else if(rooms == 4 || rooms == 5) {
+        Roomcost = rooms * 75 * days;
+    }
+    else if(rooms == 6) {
+        Roomcost = rooms * 50 * days;
+    }
     if (age >= 65){
         Roomcost = Roomcost * 0.9;
     }
 
     if (children >= 1){
+
         childboard = childboard /2;
     }
 
     total_board = childboard + adultboard;
     total_bill = total_bill + Roomcost + total_board;
 
-
-    if (paper == 'y'){
-        printf("%c \n %c \n 5.50\n %f\n %f\nTotal Bill: %f ", bookingId[20], guestName[20], Roomcost, total_board, total_bill );
-    }
-    else{
-        printf("%c \n %c \n %f\n %f\nTotal Bill: %f ", bookingId[20], guestName[20], Roomcost, total_board, total_bill );
-    }
-    return 0;
+    printf("\n%f",Roomcost);
 }
+

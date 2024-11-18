@@ -1,0 +1,25 @@
+# ninja log v6
+8	178	7533851584626504	CMakeFiles/JDL_corporation.dir/main.c.obj	d18dc71709015c76
+148	379	7536639304109000	JDL_corporation.exe	f801d640c1d620df
+2	242	7536644889939646	build.ninja	e5f8934f0094b7a2
+1	148	7536639302639433	CMakeFiles/JDL_corporation.dir/Check_Out.c.obj	10f09fb5bb99ba5f
+4	88	7533933989170941	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+2	235	7536644889939646	build.ninja	e5f8934f0094b7a2
+4	99	7536644890289738	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+100	211	7536644891239937	JDL_corporation.exe	eea804c2611797a8
+4	90	7536645068873847	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+91	196	7536645069744043	JDL_corporation.exe	eea804c2611797a8
+5	89	7536645213866056	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+89	197	7536645214716245	JDL_corporation.exe	eea804c2611797a8
+4	91	7536649859420835	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+92	200	7536649860291052	JDL_corporation.exe	eea804c2611797a8
+4	91	7536659504697292	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+91	193	7536659505571839	JDL_corporation.exe	eea804c2611797a8
+4	100	7536667335685375	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+100	214	7536667336635590	JDL_corporation.exe	eea804c2611797a8
+4	96	7536668302845169	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+97	205	7536668303775381	JDL_corporation.exe	eea804c2611797a8
+4	92	7536668381173223	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+93	199	7536668382053422	JDL_corporation.exe	eea804c2611797a8
+5	93	7536669502237211	CMakeFiles/JDL_corporation.dir/Check_out_test.c.obj	6ffee9550ef6448d
+94	196	7536669503123998	JDL_corporation.exe	eea804c2611797a8
