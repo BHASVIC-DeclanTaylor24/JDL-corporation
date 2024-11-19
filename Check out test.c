@@ -24,23 +24,23 @@ int main(void){
         {"sophia","martin","19/07/1988","35","3","2","HB","6","Y","5","martin3456"}
     };
 
-    // need to know how to send whole array into subroutine
+
 
     getbill(data);
     return 0;
 }
 int getbill(char data[7][12][20]) {
-    char paper = data[1][8];
-    float total_bill;
-    float Roomcost;
-    int children = data[1][4];
-    int age = data[1][3];
-    float adultboard;
-    float childboard;
-    float total_board;
-    int rooms = data[1][9];
-    int days = data[1][5];
-    int adults = data[1][7] - data[1][4];
+    char paper = data[0][8];
+    float total_bill = 0;
+    float Roomcost = 0;
+    int children = data[0][4];
+    int age = data[0][3];
+    float adultboard = 0;
+    float childboard = 0;
+    float total_board = 0;
+    int rooms = data[0][9];
+    int days = data[0][5];
+    int adults = data[0][7] - data[0][4];
 
 
     if (paper == 'Y'){
@@ -64,25 +64,25 @@ int getbill(char data[7][12][20]) {
     }
 
     if (children >= 1){
-        if (strcmp(data[1][6], "FB") == 0){
+        if (strcmp(data[0][6], "FB") == 0){
             childboard = children * 20;
         }
-        else if(strcmp(data[1][6], "HB") == 0){
+        else if(strcmp(data[0][6], "HB") == 0){
             childboard = children * 15;
         }
-        else if(strcmp(data[1][6], "BB") == 0){
+        else if(strcmp(data[0][6], "BB") == 0){
             childboard = children * 5;
         }
 
         childboard = childboard /2;
     }
-    if (strcmp(data[1][6], "FB") == 0){
+    if (strcmp(data[0][6], "FB") == 0){
         adultboard = adults * 20;
     }
-    else if(strcmp(data[1][6], "HB") == 0){
+    else if(strcmp(data[0][6], "HB") == 0){
         adultboard = adults * 15;
     }
-    else if(strcmp(data[1][6], "BB") == 0){
+    else if(strcmp(data[0][6], "BB") == 0){
         adultboard = adults * 5;
     }
 
@@ -90,6 +90,7 @@ int getbill(char data[7][12][20]) {
     total_board = childboard + adultboard;
     total_bill = total_bill + Roomcost + total_board;
                 //firstname surname ID childboard adultboard Roomcost Total
-    printf("\n%s %s \n%s \n%f \n%f \n%f \nTotal:%f",data[1][0],data[1][1], data[1][2], childboard, adultboard, Roomcost, total_bill);
+    printf("\n%s %s \n%s \n%f \n%f \n%f \nTotal:%f",data[0][0],data[0][1], data[0][10], childboard, adultboard, Roomcost, total_bill);
+    return 0;
 }
 
