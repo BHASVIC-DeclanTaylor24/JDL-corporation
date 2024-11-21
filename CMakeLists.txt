@@ -3,4 +3,4 @@ project(JDL_corporation C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(JDL_corporation "Check out test.c")
+add_executable(JDL_corporation "Full code.c")
