@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/declan.taylor24/ClionCodes/The Codes/JDL-corporation/cmake-build-debug",
-		"source" : "C:/Users/declan.taylor24/ClionCodes/The Codes/JDL-corporation"
+		"build" : "C:/Users/taylo/ClionCodes/JDL-corporation/cmake-build-debug",
+		"source" : "C:/Users/taylo/ClionCodes/JDL-corporation"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 7
 	}
 }

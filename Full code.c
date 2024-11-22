@@ -28,12 +28,15 @@ int main(void) {
 
     printf("Welcome to Kashyyk Hotel\n");
     while (run == 1) {
-        char userChoice;
+        char userChoice[5];
         printf("Would you like to check in(a), Book dinner(b) or check out(c):");
         fflush(stdin);
-        scanf(" %c", &userChoice);
-
-        switch (userChoice) {
+        scanf(" %s", &userChoice);
+        int length = strlen(userChoice);
+        if(length > 1) {
+            userChoice[0] = 'd';
+        }
+        switch (userChoice[0]) {
             case 'a':
                 checkIn(data, userDetails);
             break;
@@ -67,17 +70,36 @@ void checkIn(char userDetails[12][24]) {
         printf("we are full right now,sorry!\n");
         return;
     }
-    char firstName[20], lastName[20], board[4], newspaper[2], bookingID[24], temp[20];
-    int day, month, year, age,kids,guests, adults, days, room, valid = 0, random,dayinteger,monthinteger,yearinteger;
+    char firstName[20], lastName[20], board[4], newspaper[2], bookingID[24], temp[20],term,term2,term3;
+    int day, month, year, age,kids,guests, adults, days, room, valid = 0, random,dayinteger,monthinteger,yearinteger,number,number2,number3,nameValid;
     srand(time(NULL));
+    do {
+        nameValid = 0;
+        printf("Enter your first name:");
+        fflush(stdin);
+        scanf("%s",firstName);
+        printf("\nEnter your surname:");
+        fflush(stdin);
+        scanf("%s",lastName);
+        for(int letter = 0;letter<strlen(firstName);letter++){
+            if(isdigit(firstName[letter])) {
+                nameValid = 1;
+            }
+        }
+        for(int letter = 0;letter<strlen(lastName);letter++){
+            if(isdigit(lastName[letter])) {
+                nameValid = 1;
+            }
+        }
+        if(strlen(firstName)>150 || strlen(lastName)> 150 || nameValid == 1) {
+            printf("\ninvalid names entered. Do better.\n");
+        }
 
-    printf("Enter your full name:");
-    fflush(stdin);
-    scanf("%s %s", firstName, lastName);
-
+    }
+    while(strlen(firstName)>150 || strlen(lastName)> 150 || nameValid == 1);
     // Date of birth and age validation
     do {
-        printf("What is your date of birth?Enter day,month,and year(dd/mm/yy):");
+        printf("What is your \ndate of birth?Enter day,month,and year(dd/mm/yy):");
         fflush(stdin);
         scanf("%d/%d/%d", &day, &month, &year);
         int currentYear = 2024;
@@ -89,28 +111,28 @@ void checkIn(char userDetails[12][24]) {
             printf("please enter valid days/month/year.\n");
 
         }
-    } while (age < 16 || day > 31 || month > 12|| day<0||month<0 );
+    } while (age < 16 || day > 31 || month > 12|| day<0||month<0 || day ==0 || month ==0 || year ==0);
 
     // Guest and children validation
     do {
         printf("Enter the number of guests (max 4):");
         fflush(stdin);
-        scanf("%d", &guests);
-        if (guests < 1 || guests > 4) {
+        number = scanf("%d%c", &guests,&term);
+        if ((number != 2 || term != '\n') || (guests < 1 || guests>4)) {
             printf("Invalid number of guests. Please enter between 1 and 4.\n");
         }
-    } while (guests < 1 || guests > 4);
+    } while ((number != 2 || term != '\n') || (guests < 1 || guests>4));
 
     do {
-        printf("\nHow many children will be staying with you?:");
+        printf("\nHow many adults will be staying with you?:");
         fflush(stdin);
-        scanf("%d", &kids);
-        if (kids < 0 || kids > guests) {
-            printf("Invalid number of children. Please enter between 0 and %d.\n", guests);
+        number2 = scanf("%d%c", &adults,&term2);
+        if ((number2 != 2 || term2 != '\n') || (adults > guests || adults<1)) {
+            printf("Invalid number of adults. Please enter between 0 and %d.\n", guests);
         }
-    } while (kids < 0 || kids > guests-1);
+    } while ((number2 != 2 || term2 != '\n') || (adults > guests || adults<1));
 
-    adults = guests - kids;
+    kids = guests - adults;
 
     // Board type selection
     do {
@@ -147,9 +169,9 @@ void checkIn(char userDetails[12][24]) {
         printf("What room would you like to book (1-6):\n"
                "Room 1(100)\tRoom 2(100)\tRoom 3(85)\tRoom 4(75)\tRoom 5(75)\tRoom 6(50):");
         fflush(stdin);
-        scanf("%d", &room);
-        if (room < 1 || room > 6) {
-            printf("Invalid room number. Please select between 1 and 6.\n");
+        number3 = scanf("%d%c", &room,&term3);
+        if ((room < 1 || room > 6) || ( number3 != 2 || term3 != '\n')) {
+            printf("Invalid room number.\nPlease select between 1 and 6.\n");
             valid = 0;
         } else {
             valid = 1;
