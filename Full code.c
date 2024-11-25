@@ -71,47 +71,76 @@ void checkIn(char userDetails[12][24]) {
         return;
     }
     char firstName[20], lastName[20], board[4], newspaper[2], bookingID[24], temp[20],term,term2,term3;
-    int day, month, year, age,kids,guests, adults, days, room, valid = 0, random,dayinteger,monthinteger,yearinteger,number,number2,number3,nameValid;
+    int day, month, year, age,kids,guests, adults, days, room, valid = 0, random,dayinteger,monthinteger,yearinteger,number,number2,number3,nameValid,validDOB,i = 0;
     srand(time(NULL));
     do {
         nameValid = 0;
         printf("Enter your first name:");
         fflush(stdin);
-        scanf("%s",firstName);
-        printf("\nEnter your surname:");
-        fflush(stdin);
-        scanf("%s",lastName);
-        for(int letter = 0;letter<strlen(firstName);letter++){
-            if(isdigit(firstName[letter])) {
+        scanf("%s", firstName);
+
+        //checks for symbols and numbers in firstname
+        for (int i = 0; firstName[i] != '\0'; i++){
+            if (!isalpha(firstName[i])) {
                 nameValid = 1;
+                printf("Invalid Name Entered. Do Better\n");
+                break;
             }
-        }
-        for(int letter = 0;letter<strlen(lastName);letter++){
-            if(isdigit(lastName[letter])) {
-                nameValid = 1;
-            }
-        }
-        if(strlen(firstName)>150 || strlen(lastName)> 150 || nameValid == 1) {
-            printf("\ninvalid names entered. Do better.\n");
         }
 
-    }
-    while(strlen(firstName)>150 || strlen(lastName)> 150 || nameValid == 1);
+        if (!nameValid) {
+            printf("\nEnter your surname:");
+            fflush(stdin);
+            scanf("%s", lastName);
+
+            // This Checks for symbols and numbers in lastname
+            for (int i = 0; lastName[i] != '\0'; i++){
+                if (!isalpha(lastName[i])) {
+                    nameValid = 1;
+                    printf("Invalid Name Entered. Do Better\n");
+                    break;
+                }
+            }
+        }
+    } while (strlen(firstName) > 150 || strlen(lastName) > 150 || nameValid == 1);
     // Date of birth and age validation
     do {
+        validDOB =  1;
         printf("What is your \ndate of birth?Enter day,month,and year(dd/mm/yy):");
         fflush(stdin);
         scanf("%d/%d/%d", &day, &month, &year);
         int currentYear = 2024;
-        age = currentYear - (year < 24 ? 2000 + year : 1900 + year);
+        if(year == 0) {
+            age = currentYear - 2000;}
+
+        else if(year == 8 && month == 12) {
+            age = 10;
+        }
+        else if(year > 8 && year < 24) {
+            age = 10;
+        }
+        else if(year == 59 && month == 12) {
+            age = 64;
+        }
+        else {
+            age = currentYear - (year < 24 ? 2000 + year : 1900 + year);
+        }
         if (age < 16) {
             printf("You must be at least 16 years old to check in.\n");
         }
         if(day > 31 || day<0||month<0|| month>12) {
+            validDOB = 0;
             printf("please enter valid days/month/year.\n");
-
         }
-    } while (age < 16 || day > 31 || month > 12|| day<0||month<0 || day ==0 || month ==0 || year ==0);
+        if(month == 2 && day > 29 && year%4 == 0 || month == 2 && day > 28 && year%4 != 0) {
+            printf("please enter valid days/month/year.\n");
+        }
+        if( month == 4 && day == 31 || month == 6 && day == 31 || month == 9 && day == 31|| month == 11 && day == 31) {
+            printf("please enter valid days/month/year.\n");
+        }
+
+
+    } while (age < 16 || day > 31 || month > 12|| day<0||month<0 || day ==0 || month ==0 ||month == 2 && day > 29 && year%4 == 0 || month == 2 && day > 28 && year%4 != 0||month == 4 && day == 31 || month == 6 && day == 31 || month == 9 && day == 31|| month == 11 && day == 31);
 
     // Guest and children validation
     do {
@@ -421,7 +450,16 @@ int getbill() {
 
 
     printf("\nThank you for staying!\n");
+    for(int k = 0;k<3;k++) {
+        for(int j = 0; j<4 ; j++) {
+            if(strcmp(tables[k][j],who) == 0) {
+                strcpy(tables[k][j], "");
+            }
+        }
+    }
     return 0;
+
+
 }
 //quit program
 

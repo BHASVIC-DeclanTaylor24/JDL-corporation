@@ -1,6 +1,18 @@
 # ninja log v6
-156	573	7538858692856206	JDL_corporation.exe	3a6c7dc77721d4ec
-5	155	7538858691347667	CMakeFiles/JDL_corporation.dir/Full_code.c.obj	a99ac4c2267f78d1
-6	427	7540204908811648	build.ninja	a0712184f768fad4
-5	156	7540205129269129	CMakeFiles/JDL_corporation.dir/Full_code.c.obj	df48eeaa213500c3
-157	332	7540205130789465	JDL_corporation.exe	859aeaf814f6ce0c
+87	191	7542660669822237	JDL_corporation.exe	51518e021fa2d669
+14	248	7542646563360846	CMakeFiles/JDL_corporation.dir/Full_code.c.obj	df48eeaa213500c3
+4	349	7542676528984731	build.ninja	e5f8934f0094b7a2
+4	87	7542660668982029	CMakeFiles/JDL_corporation.dir/tester.c.obj	67a8c019a99dac01
+2	243	7542676528984731	build.ninja	e5f8934f0094b7a2
+4	155	7542676529364818	CMakeFiles/JDL_corporation.dir/Full_code.c.obj	df48eeaa213500c3
+156	279	7542676530875165	JDL_corporation.exe	859aeaf814f6ce0c
+4	117	7542677215041631	CMakeFiles/JDL_corporation.dir/Full_code.c.obj	df48eeaa213500c3
+118	224	7542677216182293	JDL_corporation.exe	859aeaf814f6ce0c
+4	118	7542678250381672	CMakeFiles/JDL_corporation.dir/Full_code.c.obj	df48eeaa213500c3
+118	226	7542678251524539	JDL_corporation.exe	859aeaf814f6ce0c
+4	118	7542678364225266	CMakeFiles/JDL_corporation.dir/Full_code.c.obj	df48eeaa213500c3
+118	226	7542678365361995	JDL_corporation.exe	859aeaf814f6ce0c
+4	205	7542726848041241	CMakeFiles/JDL_corporation.dir/Full_code.c.obj	df48eeaa213500c3
+205	421	7542726850051699	JDL_corporation.exe	859aeaf814f6ce0c
+5	129	7542785956585620	CMakeFiles/JDL_corporation.dir/Full_code.c.obj	df48eeaa213500c3
+129	250	7542785957822704	JDL_corporation.exe	859aeaf814f6ce0c
